@@ -1,0 +1,22 @@
+{
+    "cabcallerApp": {
+        "cabinGroup" : {
+            "home": {
+                "title": "Cabin Groups",
+                "createLabel": "Create a new Cabin Group",
+                "createOrEditLabel": "Create or edit a Cabin Group"
+            },
+            "created": "A new Cabin Group is created with identifier {{ param }}",
+            "updated": "A Cabin Group is updated with identifier {{ param }}",
+            "deleted": "A Cabin Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cabin Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Cabin Group"
+            },
+            "name": "Name",
+            "branch": "Branch"
+        }
+    }
+}

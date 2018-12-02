@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="cabcallerApp.cabin.detail.title">Cabin</span> {{vm.cabin.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cabcallerApp.cabin.cabNo">Cab No</span></dt>
+        <dd>
+            <span>{{vm.cabin.cabNo}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabin.buttonId">Button Id</span></dt>
+        <dd>
+            <span>{{vm.cabin.buttonId}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabin.cabinGroup">Cabin Group</span></dt>
+        <dd>
+            <a ui-sref="cabin-group-detail({id:vm.cabin.cabinGroup.id})">{{vm.cabin.cabinGroup.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cabin-detail.edit({id:vm.cabin.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

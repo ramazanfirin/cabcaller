@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Stuff.
+    -->
+    <changeSet id="20181202003626-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="branch_id"
+                                 baseTableName="stuff"
+                                 constraintName="fk_stuff_branch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="stuff"
+                                 constraintName="fk_stuff_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="cabin_group_id"
+                                 baseTableName="stuff"
+                                 constraintName="fk_stuff_cabin_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cabin_group"/>
+
+    </changeSet>
+</databaseChangeLog>

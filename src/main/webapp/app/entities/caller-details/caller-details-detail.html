@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="cabcallerApp.callerDetails.detail.title">Caller Details</span> {{vm.callerDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cabcallerApp.callerDetails.callDate">Call Date</span></dt>
+        <dd>
+            <span>{{vm.callerDetails.callDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.callerDetails.branch">Branch</span></dt>
+        <dd>
+            <a ui-sref="branch-detail({id:vm.callerDetails.branch.id})">{{vm.callerDetails.branch.id}}</a>
+        </dd>
+        <dt><span data-translate="cabcallerApp.callerDetails.cabin">Cabin</span></dt>
+        <dd>
+            <a ui-sref="cabin-detail({id:vm.callerDetails.cabin.id})">{{vm.callerDetails.cabin.id}}</a>
+        </dd>
+        <dt><span data-translate="cabcallerApp.callerDetails.stuff">Stuff</span></dt>
+        <dd>
+            <a ui-sref="stuff-detail({id:vm.callerDetails.stuff.id})">{{vm.callerDetails.stuff.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="caller-details-detail.edit({id:vm.callerDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

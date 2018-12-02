@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="cabcallerApp.cabinGroupUser.detail.title">Cabin Group User</span> {{vm.cabinGroupUser.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cabcallerApp.cabinGroupUser.groupID">Group ID</span></dt>
+        <dd>
+            <span>{{vm.cabinGroupUser.groupID}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUser.userID">User ID</span></dt>
+        <dd>
+            <span>{{vm.cabinGroupUser.userID}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUser.groupID">Group ID</span></dt>
+        <dd>
+            <span ng-repeat="groupID in vm.cabinGroupUser.groupIDS">
+                <a ui-sref="cabin-group-detail({id: groupID.id})">{{groupID.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUser.userID">User ID</span></dt>
+        <dd>
+            <span ng-repeat="userID in vm.cabinGroupUser.userIDS">
+                <a ui-sref="stuff-detail({id: userID.id})">{{userID.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cabin-group-user-detail.edit({id:vm.cabinGroupUser.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

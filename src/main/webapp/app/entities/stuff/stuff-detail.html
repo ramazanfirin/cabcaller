@@ -1,0 +1,59 @@
+
+<div>
+    <h2><span data-translate="cabcallerApp.stuff.detail.title">Stuff</span> {{vm.stuff.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cabcallerApp.stuff.name">Name</span></dt>
+        <dd>
+            <span>{{vm.stuff.name}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.surname">Surname</span></dt>
+        <dd>
+            <span>{{vm.stuff.surname}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.email">Email</span></dt>
+        <dd>
+            <span>{{vm.stuff.email}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.userCode">User Code</span></dt>
+        <dd>
+            <span>{{vm.stuff.userCode}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.password">Password</span></dt>
+        <dd>
+            <span>{{vm.stuff.password}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.deviceToken">Device Token</span></dt>
+        <dd>
+            <span>{{vm.stuff.deviceToken}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.statu">Statu</span></dt>
+        <dd>
+            <span>{{vm.stuff.statu}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.branch">Branch</span></dt>
+        <dd>
+            <a ui-sref="branch-detail({id:vm.stuff.branch.id})">{{vm.stuff.branch.id}}</a>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.company">Company</span></dt>
+        <dd>
+            <a ui-sref="company-detail({id:vm.stuff.company.id})">{{vm.stuff.company.id}}</a>
+        </dd>
+        <dt><span data-translate="cabcallerApp.stuff.cabinGroup">Cabin Group</span></dt>
+        <dd>
+            <a ui-sref="cabin-group-detail({id:vm.stuff.cabinGroup.id})">{{vm.stuff.cabinGroup.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="stuff-detail.edit({id:vm.stuff.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

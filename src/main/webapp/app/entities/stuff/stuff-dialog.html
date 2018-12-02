@@ -1,0 +1,116 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myStuffLabel" data-translate="cabcallerApp.stuff.home.createOrEditLabel">Create or edit a Stuff</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.stuff.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.stuff.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.stuff.name"
+                    required/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.surname" for="field_surname">Surname</label>
+            <input type="text" class="form-control" name="surname" id="field_surname"
+                    ng-model="vm.stuff.surname"
+                    required/>
+            <div ng-show="editForm.surname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.surname.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.stuff.email"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.userCode" for="field_userCode">User Code</label>
+            <input type="number" class="form-control" name="userCode" id="field_userCode"
+                    ng-model="vm.stuff.userCode"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.password" for="field_password">Password</label>
+            <input type="text" class="form-control" name="password" id="field_password"
+                    ng-model="vm.stuff.password"
+                    required/>
+            <div ng-show="editForm.password.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.password.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.deviceToken" for="field_deviceToken">Device Token</label>
+            <input type="text" class="form-control" name="deviceToken" id="field_deviceToken"
+                    ng-model="vm.stuff.deviceToken"
+                    required/>
+            <div ng-show="editForm.deviceToken.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.deviceToken.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cabcallerApp.stuff.statu" for="field_statu">Statu</label>
+            <input type="text" class="form-control" name="statu" id="field_statu"
+                    ng-model="vm.stuff.statu"
+                    required/>
+            <div ng-show="editForm.statu.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.statu.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cabcallerApp.stuff.branch" for="field_branch">Branch</label>
+            <select class="form-control" id="field_branch" name="branch" ng-model="vm.stuff.branch" ng-options="branch as branch.id for branch in vm.branches track by branch.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cabcallerApp.stuff.company" for="field_company">Company</label>
+            <select class="form-control" id="field_company" name="company" ng-model="vm.stuff.company" ng-options="company as company.id for company in vm.companies track by company.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cabcallerApp.stuff.cabinGroup" for="field_cabinGroup">Cabin Group</label>
+            <select class="form-control" id="field_cabinGroup" name="cabinGroup" ng-model="vm.stuff.cabinGroup" ng-options="cabinGroup as cabinGroup.id for cabinGroup in vm.cabingroups track by cabinGroup.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

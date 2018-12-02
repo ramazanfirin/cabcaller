@@ -1,0 +1,25 @@
+{
+    "cabcallerApp": {
+        "cabinGroupUserHistory" : {
+            "home": {
+                "title": "Cabin Group User Histories",
+                "createLabel": "Create a new Cabin Group User History",
+                "createOrEditLabel": "Create or edit a Cabin Group User History"
+            },
+            "created": "A new Cabin Group User History is created with identifier {{ param }}",
+            "updated": "A Cabin Group User History is updated with identifier {{ param }}",
+            "deleted": "A Cabin Group User History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cabin Group User History {{ id }}?"
+            },
+            "detail": {
+                "title": "Cabin Group User History"
+            },
+            "groupID": "Group ID",
+            "userID": "User ID",
+            "actionDate": "Action Date",
+            "groupID": "Group ID",
+            "userID": "User ID"
+        }
+    }
+}

@@ -57,30 +57,50 @@ relationship ManyToOne {
 
 
 entity CabinGroupUser{
-	groupID CabinGroup required
-	userID Stuff required
+	groupID Long required
+	userID Long required
 }
+
+relationship ManyToMany {
+    CabinGroupUser{groupID} to CabinGroup
+}
+
+relationship ManyToMany {
+    CabinGroupUser{userID} to Stuff
+}
+
 
 entity CabinGroupUserHistory{
-	actionDate Date
-	groupID CabinGroup required
-	userID Stuff required
+	groupID Long required
+	userID Long required
+	actionDate LocalDate
 }
+
+relationship ManyToMany {
+    CabinGroupUserHistory{groupID} to CabinGroup
+}
+
+relationship ManyToMany {
+    CabinGroupUserHistory{userID} to Stuff
+}
+
 
 entity CallerDetails{
-	branch Branch required
-	cabin  Cabin required
-	callDate Date
-	stuff Stuff 
+	callDate LocalDate
 }
 
-entity CallerDetailsHistory{
-	branch Branch required
-	cabin  Cabin required
-	callDate Date
-	stuff Stuff 
+relationship ManyToOne {
+    CallerDetails{branch} to Branch
 }
-  
-  
-paginate Branch,Stuff,CallerDetails,CallerDetailsHistory  with pagination  
+
+relationship ManyToOne {
+    CallerDetails{cabin} to Cabin
+}
+
+relationship ManyToOne {
+    CallerDetails{stuff} to Stuff
+}
+
+
+paginate Branch,Stuff,CallerDetails with pagination  
   

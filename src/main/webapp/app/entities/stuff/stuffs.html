@@ -1,0 +1,84 @@
+<div>
+    <h2 data-translate="cabcallerApp.stuff.home.title">Stuffs</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="stuff.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cabcallerApp.stuff.home.createLabel">
+                        Create new Stuff
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="cabcallerApp.stuff.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="surname"><span data-translate="cabcallerApp.stuff.surname">Surname</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span data-translate="cabcallerApp.stuff.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userCode"><span data-translate="cabcallerApp.stuff.userCode">User Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="password"><span data-translate="cabcallerApp.stuff.password">Password</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="deviceToken"><span data-translate="cabcallerApp.stuff.deviceToken">Device Token</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="statu"><span data-translate="cabcallerApp.stuff.statu">Statu</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="branch.id"><span data-translate="cabcallerApp.stuff.branch">Branch</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="company.id"><span data-translate="cabcallerApp.stuff.company">Company</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cabinGroup.id"><span data-translate="cabcallerApp.stuff.cabinGroup">Cabin Group</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="stuff in vm.stuffs track by stuff.id">
+                    <td><a ui-sref="stuff-detail({id:stuff.id})">{{stuff.id}}</a></td>
+                    <td>{{stuff.name}}</td>
+                    <td>{{stuff.surname}}</td>
+                    <td>{{stuff.email}}</td>
+                    <td>{{stuff.userCode}}</td>
+                    <td>{{stuff.password}}</td>
+                    <td>{{stuff.deviceToken}}</td>
+                    <td>{{stuff.statu}}</td>
+                    <td>
+                        <a ui-sref="branch-detail({id:stuff.branch.id})">{{stuff.branch.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="company-detail({id:stuff.company.id})">{{stuff.company.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cabin-group-detail({id:stuff.cabinGroup.id})">{{stuff.cabinGroup.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="stuff-detail({id:stuff.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="stuff.edit({id:stuff.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="stuff.delete({id:stuff.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

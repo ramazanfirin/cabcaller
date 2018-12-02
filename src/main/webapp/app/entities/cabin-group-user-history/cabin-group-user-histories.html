@@ -1,0 +1,72 @@
+<div>
+    <h2 data-translate="cabcallerApp.cabinGroupUserHistory.home.title">Cabin Group User Histories</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="cabin-group-user-history.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cabcallerApp.cabinGroupUserHistory.home.createLabel">
+                        Create new Cabin Group User History
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUserHistory.groupID">Group ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUserHistory.userID">User ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUserHistory.actionDate">Action Date</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUserHistory.groupID">Group ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUserHistory.userID">User ID</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cabinGroupUserHistory in vm.cabinGroupUserHistories track by cabinGroupUserHistory.id">
+                    <td><a ui-sref="cabin-group-user-history-detail({id:cabinGroupUserHistory.id})">{{cabinGroupUserHistory.id}}</a></td>
+                    <td>{{cabinGroupUserHistory.groupID}}</td>
+                    <td>{{cabinGroupUserHistory.userID}}</td>
+                        <td>{{cabinGroupUserHistory.actionDate | date:'mediumDate'}}</td>
+                    <td>
+                        <span ng-repeat="groupID in cabinGroupUserHistory.groupIDS">
+                            <a class="form-control-static" ui-sref="cabin-group-detail({id: groupID.id})">{{groupID.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="userID in cabinGroupUserHistory.userIDS">
+                            <a class="form-control-static" ui-sref="stuff-detail({id: userID.id})">{{userID.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="cabin-group-user-history-detail({id:cabinGroupUserHistory.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cabin-group-user-history.edit({id:cabinGroupUserHistory.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cabin-group-user-history.delete({id:cabinGroupUserHistory.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

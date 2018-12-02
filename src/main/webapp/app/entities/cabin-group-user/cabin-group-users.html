@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="cabcallerApp.cabinGroupUser.home.title">Cabin Group Users</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="cabin-group-user.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cabcallerApp.cabinGroupUser.home.createLabel">
+                        Create new Cabin Group User
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUser.groupID">Group ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUser.userID">User ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUser.groupID">Group ID</span></th>
+                    <th><span data-translate="cabcallerApp.cabinGroupUser.userID">User ID</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cabinGroupUser in vm.cabinGroupUsers track by cabinGroupUser.id">
+                    <td><a ui-sref="cabin-group-user-detail({id:cabinGroupUser.id})">{{cabinGroupUser.id}}</a></td>
+                    <td>{{cabinGroupUser.groupID}}</td>
+                    <td>{{cabinGroupUser.userID}}</td>
+                    <td>
+                        <span ng-repeat="groupID in cabinGroupUser.groupIDS">
+                            <a class="form-control-static" ui-sref="cabin-group-detail({id: groupID.id})">{{groupID.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="userID in cabinGroupUser.userIDS">
+                            <a class="form-control-static" ui-sref="stuff-detail({id: userID.id})">{{userID.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="cabin-group-user-detail({id:cabinGroupUser.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cabin-group-user.edit({id:cabinGroupUser.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cabin-group-user.delete({id:cabinGroupUser.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

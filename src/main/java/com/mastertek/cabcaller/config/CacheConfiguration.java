@@ -44,6 +44,18 @@ public class CacheConfiguration {
             cm.createCache(com.mastertek.cabcaller.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.mastertek.cabcaller.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.mastertek.cabcaller.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.Company.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.Branch.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.Stuff.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroup.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.Cabin.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroupUser.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroupUser.class.getName() + ".groupIDS", jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroupUser.class.getName() + ".userIDS", jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroupUserHistory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroupUserHistory.class.getName() + ".groupIDS", jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CabinGroupUserHistory.class.getName() + ".userIDS", jcacheConfiguration);
+            cm.createCache(com.mastertek.cabcaller.domain.CallerDetails.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

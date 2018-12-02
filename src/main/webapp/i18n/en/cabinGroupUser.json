@@ -1,0 +1,24 @@
+{
+    "cabcallerApp": {
+        "cabinGroupUser" : {
+            "home": {
+                "title": "Cabin Group Users",
+                "createLabel": "Create a new Cabin Group User",
+                "createOrEditLabel": "Create or edit a Cabin Group User"
+            },
+            "created": "A new Cabin Group User is created with identifier {{ param }}",
+            "updated": "A Cabin Group User is updated with identifier {{ param }}",
+            "deleted": "A Cabin Group User is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cabin Group User {{ id }}?"
+            },
+            "detail": {
+                "title": "Cabin Group User"
+            },
+            "groupID": "Group ID",
+            "userID": "User ID",
+            "groupID": "Group ID",
+            "userID": "User ID"
+        }
+    }
+}

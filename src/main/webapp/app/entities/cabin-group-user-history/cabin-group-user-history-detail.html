@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="cabcallerApp.cabinGroupUserHistory.detail.title">Cabin Group User History</span> {{vm.cabinGroupUserHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cabcallerApp.cabinGroupUserHistory.groupID">Group ID</span></dt>
+        <dd>
+            <span>{{vm.cabinGroupUserHistory.groupID}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUserHistory.userID">User ID</span></dt>
+        <dd>
+            <span>{{vm.cabinGroupUserHistory.userID}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUserHistory.actionDate">Action Date</span></dt>
+        <dd>
+            <span>{{vm.cabinGroupUserHistory.actionDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUserHistory.groupID">Group ID</span></dt>
+        <dd>
+            <span ng-repeat="groupID in vm.cabinGroupUserHistory.groupIDS">
+                <a ui-sref="cabin-group-detail({id: groupID.id})">{{groupID.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="cabcallerApp.cabinGroupUserHistory.userID">User ID</span></dt>
+        <dd>
+            <span ng-repeat="userID in vm.cabinGroupUserHistory.userIDS">
+                <a ui-sref="stuff-detail({id: userID.id})">{{userID.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cabin-group-user-history-detail.edit({id:vm.cabinGroupUserHistory.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
