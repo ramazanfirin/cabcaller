@@ -1,0 +1,86 @@
+entity Company{
+     name String required
+}
+entity Branch{
+	name String required
+
+}
+
+relationship ManyToOne {
+    Branch{company} to Company
+} 
+
+entity Stuff{
+	
+    name String required
+    surname String required
+    email String
+    userCode Long 
+    password String required
+	deviceToken String required
+	statu String required
+    
+}
+
+relationship ManyToOne {
+    Stuff{branch} to Branch
+}
+
+relationship ManyToOne {
+    Stuff{company} to Company
+}
+
+relationship ManyToOne {
+    Stuff{cabinGroup} to CabinGroup
+}
+
+
+
+entity CabinGroup{
+	name String required
+}
+
+relationship ManyToOne {
+    CabinGroup{branch} to Branch
+}
+
+
+entity Cabin{
+	cabNo String required
+	buttonId String required
+}
+
+relationship ManyToOne {
+    Cabin{cabinGroup} to CabinGroup
+}
+
+
+
+entity CabinGroupUser{
+	groupID CabinGroup required
+	userID Stuff required
+}
+
+entity CabinGroupUserHistory{
+	actionDate Date
+	groupID CabinGroup required
+	userID Stuff required
+}
+
+entity CallerDetails{
+	branch Branch required
+	cabin  Cabin required
+	callDate Date
+	stuff Stuff 
+}
+
+entity CallerDetailsHistory{
+	branch Branch required
+	cabin  Cabin required
+	callDate Date
+	stuff Stuff 
+}
+  
+  
+paginate Branch,Stuff,CallerDetails,CallerDetailsHistory  with pagination  
+  
