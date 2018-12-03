@@ -40,9 +40,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/cabcaller?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://35.232.118.230:3306/cabcallerdb?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: 1q2w3e4r5t
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -96,7 +96,7 @@ liquibase:
 #        key-alias: cabcaller
 # ===================================================================
 server:
-    port: 8080
+    port: 8089
 
 # ===================================================================
 # JHipster specific properties
